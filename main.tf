@@ -29,13 +29,15 @@ resource "azurerm_container_group" "sftp" {
     image    = "atmoz/sftp:latest"
     cpu      = "1"
     memory   = "1.5"
+    environment_variables = {
+      "SFTP_USERS" = "${var.sftp_user_name}:${var.sftp_password}:1001"
+    }
+    
     ports {
       port     = "22"
       protocol = "TCP"
     }
-    environment_variables{
-      "SFTP_USERS" = "${var.sftp_user_name}:${var.sftp_password}:1001"
-    }
+    
     volume {
       name       = "sftpvolume"
       mount_path = "/home/${var.sftp_user_name}/${var.sftp_folder}"
