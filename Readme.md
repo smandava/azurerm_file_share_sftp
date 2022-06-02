@@ -52,8 +52,8 @@ $ terraform apply # to create the resources
 #### Run the example
 
 ```Shell
-$ terraform plan -destory # to preview the changes
-$ terraform destory # to clean up the resources.
+$ terraform plan -destroy # to preview the changes
+$ terraform destroy # to clean up the resources.
 
 ```
 
